@@ -1,4 +1,5 @@
-public class Main {
+public class IfElseStatementTheme{
+
     public static void main(String[] args) {
         System.out.println("1.Перевод псевдокода на язык Java");
         int age = 21;
@@ -10,6 +11,7 @@ public class Main {
         } else {
             System.out.println("Пока можешь расслабиться");
         }
+
         if (sex != "man") {
             System.out.println("Можешь не служить");
         } else {
