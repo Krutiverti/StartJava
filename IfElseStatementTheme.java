@@ -10,19 +10,16 @@ public class Main {
         } else {
             System.out.println("Пока можешь расслабиться");
         }
-
         if (sex != "man") {
             System.out.println("Можешь не служить");
         } else {
             System.out.println("Теперь ты в армии");
         }
-
         if (height < 1.80) {
             System.out.println("Привет красавчик");
         } else {
             System.out.println("Сколько зарабатываешь?");
         }
-
         char firstLetter = name.charAt(0);
         if (firstLetter == 'M') {
             System.out.println("Могло быть и лучше");
