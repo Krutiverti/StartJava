@@ -8,14 +8,14 @@ public class VariablesTheme  {
         byte memorySize = 16;
         float memoryFrequency = 2.6f;
         short ssdSize = 256;
-        boolean dscrtVdAdptr = false;
+        boolean videoCard = false;
         long mtbf = 5400000000L;
         System.out.println("Процессор Intel Core i" + cpuIndex + ", Частота процессора: " + cpuFrequency +
                 "Ггц, Количество ядер: " + cpuCore);
-        System.out.println("Объем твердотельного накопителя: " + ssdSize + "Гб, наработка на отказ: " + mtbf +
-                " секунд");
+        System.out.println("Объем твердотельного накопителя: " + ssdSize + "Гб, наработка на отказ: " +
+                mtbf + " секунд");
         System.out.println("Объем оперативной памяти: " + memorySize + "Гб, частота памяти: " + memoryFrequency + "ГГц");
-        System.out.println("Наличие дискретной видеокарты: " + dscrtVdAdptr + "\n");
+        System.out.println("Наличие дискретной видеокарты: " + videoCard + "\n");
 
         System.out.println("2.Расчет стоимости товаров");
         int penPrice = 100;
@@ -78,26 +78,25 @@ public class VariablesTheme  {
 
         System.out.println("7.Вывод в консоль ASCII-арт Дюка");
         char slash = '/';
-        char reversSlash = '\\';
-        char underscore1 = '_';
+        char backSlash = '\\';
         char openParenthesis = '(';
         char closeParenthesis = ')';
-        System.out.println("    " + slash +  reversSlash);
-        System.out.println("   " + slash + "  "+ reversSlash);
-        System.out.println("  " + slash + underscore1 + openParenthesis + " " + closeParenthesis + reversSlash);
-        System.out.println(" " + slash + "      " + reversSlash);
-        System.out.println("" + slash + underscore1 + underscore1 + underscore1 + underscore1 + slash + reversSlash +
-                underscore1 + underscore1 + reversSlash + "\n");
+        System.out.println("    " + slash +  backSlash);
+        System.out.println("   " + slash + "  "+ backSlash);
+        System.out.println("  " + slash + underscore + openParenthesis + " " + closeParenthesis + backSlash);
+        System.out.println(" " + slash + "      " + backSlash);
+        System.out.println("" + slash + underscore + underscore + underscore + underscore + slash + backSlash +
+                underscore + underscore + backSlash + "\n");
 
         System.out.println("8.Вывод количества сотен, десятков и единиц числа");
         int num = 123;
-        int hundred = num / 100 % 10;
-        int decade = num / 10 % 10;
-        int units = num % 10;
+        int hundreds = num / 100;
+        int tens = num / 10 % 10;
+        int ones = num % 10;
         System.out.println("Число " + num + " содержит:");
-        System.out.println(hundred + " сотню" + "\n" + decade + " десятка" +"\n" + units + " единицы");
-        System.out.println("Сумма его цифр = " + (hundred + decade + units) + "\n" + "Произведение = " +
-                (hundred * decade * units) + "\n");
+        System.out.println(hundreds + " сотню" + "\n" + tens+ " десятка" +"\n" + ones + " единицы");
+        System.out.println("Сумма его цифр = " + (hundreds + tens + ones) + "\n" +
+                "Произведение = " + (hundreds * tens * ones) + "\n");
 
         System.out.println("9.Вывод времени");
         int time = 86399;
