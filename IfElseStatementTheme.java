@@ -44,15 +44,18 @@ public class IfElseStatementTheme {
         System.out.println("3.Проверка числа");
         int digit = -2;
         if (digit == 0) {
-            System.out.println("Число равно " + digit);
-        } else if (digit % 2 == 0) {
-            System.out.println("Число " + digit + " четное");
+            System.out.println("Число равно " + digit + "\n");
         } else {
-            System.out.println("Число " + digit + " нечетное");
-        } if (digit != 0 &&  digit > 0) {
-            System.out.println("Число " + digit + " положительное\n");
-        } else if(digit != 0 &&  digit < 0) {
-            System.out.println("Число " + digit + " отрицательное\n");
+            if (digit % 2 == 0) {
+                System.out.println("Число " + digit + " четное");
+            } else {
+                System.out.println("Число " + digit + " нечетное");
+            }
+            if (digit > 0) {
+                System.out.println("Число " + digit + " положительное\n");
+            } else {
+                System.out.println("Число " + digit + " отрицательное\n");
+            }
         }
 
         System.out.println("4.Поиск одинаковых цифр в числах");
@@ -72,18 +75,18 @@ public class IfElseStatementTheme {
             System.out.println("В третьем разряде найдены одинаковые цифры: " + num1 / 100 );
             sameDigitCount = true;
         }
-        if (sameDigitCount == false) {
+        if (!sameDigitCount) {
             System.out.println("Одинаковых цифр нет");
         }
-        System.out.println();
 
-        System.out.println("5. Определение символа по его коду");
+
+        System.out.println("\n5. Определение символа по его коду");
         char symbol = '\u0057';
-        if (symbol > '/' && symbol < ':') {
+        if (symbol >= '0' && symbol <= '9') {
             System.out.println("Число");
-        } else if (symbol > '@' &&  symbol < '[') {
+        } else if (symbol >= 'A' &&  symbol <= 'Z') {
             System.out.println("Большая буква");
-        } else if (symbol > '`' && symbol < '{') {
+        } else if (symbol >= 'a' && symbol <= 'z') {
             System.out.println("Маленькая буква");
         } else {
             System.out.println("Не буква и не число");
@@ -105,10 +108,8 @@ public class IfElseStatementTheme {
 
         System.out.println("7. Определение оценки по предметам");
         int historyPercents = 59;
-        int historyMark = 0;
-        if (historyPercents <= 69) {
-            historyMark = 2;
-        } else if (historyPercents > 69 && historyPercents < 74) {
+        int historyMark = 2;
+         if (historyPercents > 69 && historyPercents < 74) {
             historyMark =3;
         } else if (historyPercents > 73 && historyPercents < 92) {
             historyMark = 4;
@@ -116,10 +117,8 @@ public class IfElseStatementTheme {
             historyMark = 5;
         }
         int programmingPercents = 91;
-        int programmingMark = 0;
-        if (programmingPercents<= 69) {
-            programmingMark = 2;
-        } else if (historyPercents > 69 && historyPercents < 74) {
+        int programmingMark = 2;
+        if (historyPercents > 69 && historyPercents < 74) {
             programmingMark =3;
         } else if (programmingPercents> 73 && historyPercents < 92) {
             programmingMark= 4;
@@ -133,12 +132,12 @@ public class IfElseStatementTheme {
 
         System.out.println("8. Расчет прибыли за год");
         int monthRent = 5000;
-        int monthCirculation = 14000;
+        int monthCirculation = 13000;
         int cost = 9000;
         int revenue = (monthCirculation - cost - monthRent) * 12;
         if (revenue > 0) {
             System.out.println("Прибыль за год: +" + revenue + "\n");
-        }  else if (revenue <= 0) {
+        }  else {
             System.out.println("Прибыль за год: " + revenue + "\n");
         }
 
@@ -147,31 +146,22 @@ public class IfElseStatementTheme {
         int onesLimit = 50;
         int tensLimit = 5;
         int hundredsLimit = 10;
-        int requestedOneUsd = 0;
-        int requestedTenUsd = 0;
-        int requestedHundredUsd = 0;
+        int requestedOneUsd = requestedCash % 10;
+        int requestedTenUsd = requestedCash / 10 % 10;
+        int requestedHundredUsd = requestedCash / 100;
         if ((onesLimit * 1 + tensLimit * 10 + hundredsLimit * 100) < requestedCash) {
             System.out.println("В банкомате недостаточно средств.");
             return;
         }
-        if (requestedCash / 100 <= hundredsLimit) {
-            if (requestedCash % 100  <= tensLimit * 10) {
-                requestedHundredUsd = requestedCash /100;
-                requestedTenUsd = requestedCash / 10 % 10;
-                requestedOneUsd = requestedCash % 10;
-            } else if (requestedCash % 100 >= tensLimit * 10) {
-                requestedHundredUsd = requestedCash / 100;
+        if (requestedCash / 100 <= hundredsLimit && requestedCash % 100 >= tensLimit * 10) {
                 requestedTenUsd = tensLimit;
-                requestedOneUsd = requestedCash % 100 - tensLimit * 10 ;
-            }
+                requestedOneUsd = requestedCash % 100 - tensLimit * 10;
         }
         if (requestedCash / 100 > hundredsLimit) {
+            requestedHundredUsd = hundredsLimit;
             if (requestedCash / 10 - hundredsLimit * 10 <= tensLimit) {
-                requestedHundredUsd = hundredsLimit;
                 requestedTenUsd = (requestedCash - hundredsLimit * 100) / 10;
-                requestedOneUsd = requestedCash % 10;
-            } else if (requestedCash / 10 - hundredsLimit * 10 >= tensLimit) {
-                requestedHundredUsd = hundredsLimit;
+                } else if (requestedCash / 10 - hundredsLimit * 10 >= tensLimit) {
                 requestedTenUsd = tensLimit;
                 requestedOneUsd = requestedCash - hundredsLimit * 100 - tensLimit * 10;
             }
