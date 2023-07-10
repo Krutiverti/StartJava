@@ -33,7 +33,7 @@ public class CyclesTheme {
         } else if (num3 < min) {
             min = num3;
         }
-        for (int i = ++min; i < max; ++i) {
+        for (int i = --max; i > min; i--) {
             System.out.print(i + " ");
         }
 
@@ -96,7 +96,7 @@ public class CyclesTheme {
             System.out.println();
         }
         System.out.println();
-        int lang= 5;
+        int lang = 5;
         while (lang > 0) {
            int height = lang;
             while (height > 0) {
@@ -120,9 +120,9 @@ public class CyclesTheme {
             do {
                 ++height;
                 System.out.print("$");
-            }while (height < lang);
+            } while (height < lang);
             countStrings++;
-        }while (countStrings < 5);
+        } while (countStrings < 5);
 
 
 
@@ -131,15 +131,13 @@ public class CyclesTheme {
         System.out.println("символы, идущие до цифр и имеющие нечетные коды");
         for (int i = 33; i < 48; i++) {
             if (i % 2 != 0) {
-                System.out.printf("%3d", i);
-                System.out.printf("%3c\n", i);
+                System.out.printf("%3d%3c\n", i, i);
             }
         }
         System.out.println("маленькие английские буквы, имеющие четные коды");
         for (int i = 97; i < 123; i++) {
             if ( i % 2 == 0) {
-                System.out.printf("%3d", i);
-                System.out.printf("%3c\n", i);
+                System.out.printf("%3d%3c\n", i, i);
             }
         }
 
@@ -179,7 +177,7 @@ public class CyclesTheme {
 
         //10. Вывод таблицы умножения Пифагора
         System.out.println("10. Вывод таблицы умножения Пифагора");
-        System.out.println("    Таблица пифагора");
+        System.out.println("    Таблица Пифагора");
         System.out.print(" |");
         for (int i = 2; i < 10 ; i++) {
             System.out.printf("%3d", i);
